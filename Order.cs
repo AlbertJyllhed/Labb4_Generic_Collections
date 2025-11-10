@@ -18,12 +18,21 @@
 
         public void DisplayOrderInfo()
         {
-            Console.WriteLine($"Till bord nummer {_tableNumber}");
+            decimal totalPrice = 0;
 
             foreach (var order in _orderItems)
             {
-                Console.WriteLine(order.ToString());
+                Console.WriteLine($"1 st {order.Name}");
+                totalPrice += Math.Round(order.Price, 2);
             }
+
+            Console.WriteLine($"Summa: {totalPrice} kr\n" +
+                $"Till bord nummer {_tableNumber}\n");
+        }
+
+        public int GetOrderId()
+        {
+            return _orderId;
         }
     }
 }

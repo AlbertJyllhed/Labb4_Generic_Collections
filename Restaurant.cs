@@ -8,7 +8,7 @@
         public void AddToMenu(MenuItem menuItem)
         {
             Menu.Add(menuItem);
-            Console.WriteLine($"Adding {menuItem.ToString()} to the menu.");
+            Console.WriteLine($"{menuItem.ToString()} har lagts till i menyn.");
         }
 
         public void ShowMenu()
@@ -23,17 +23,18 @@
         public void CreateOrder(Order order)
         {
             Orders.Enqueue(order);
-            Console.WriteLine($"Adding {order} to order list.");
+            Console.WriteLine($"Beställning nr {order.GetOrderId()} har lagts till.");
         }
 
         public void HandleOrder()
         {
             var order = Orders.Dequeue();
-            Console.WriteLine($"Handling {order}.");
+            Console.WriteLine($"Order {order.GetOrderId()} färdig.");
         }
 
         public void ShowOrders()
         {
+            Console.WriteLine("Aktuella beställningar:");
             foreach (var order in Orders)
             {
                 order.DisplayOrderInfo();
@@ -42,14 +43,24 @@
 
         public void ShowNextOrder()
         {
-            var order = Orders.Peek();
-            Console.WriteLine("Next order:");
-            order.DisplayOrderInfo();
+            Console.WriteLine("Nästa order i kön:");
+            Orders.Peek().DisplayOrderInfo();
         }
 
         public void ShowOrderCount()
         {
-            Console.WriteLine($"There are {Orders.Count} orders.");
+            if (Orders.Count == 1)
+            {
+                Console.WriteLine($"Det är {Orders.Count} order i kön.");
+            }
+            else if (Orders.Count > 1)
+            {
+                Console.WriteLine($"Det är {Orders.Count} ordrar i kön.");
+            }
+            else
+            {
+                Console.WriteLine("Det finns inga väntande ordrar i kön just nu.");
+            }
         }
     }
 }
