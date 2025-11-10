@@ -8,10 +8,10 @@
 
             var menu = new List<MenuItem>()
             {
-                new MenuItem(0, "Meatballs and Spaghetti", 70.50m),
-                new MenuItem(1, "Pasta Carbonara", 120.75m),
-                new MenuItem(2, "Tacos", 80.50m),
-                new MenuItem(3, "Fish Soup", 64.99m)
+                new MenuItem(0, "Carbonara", 129.00m),
+                new MenuItem(1, "Margherita", 99.00m),
+                new MenuItem(2, "Cheeseburgare", 149.00m),
+                new MenuItem(3, "Caesarsallad", 89.00m)
             };
 
             foreach (var menuItem in menu)
